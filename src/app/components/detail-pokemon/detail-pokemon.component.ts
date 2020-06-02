@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Pokemon } from '../../model/pokemon';
-import { POKEMONS } from '../../data/mock-pokemons';
+import { PokemonsService } from 'src/app/services/pokemons.service';
 
 @Component({
   selector: 'app-detail-pokemon',
@@ -10,24 +10,21 @@ import { POKEMONS } from '../../data/mock-pokemons';
 })
 export class DetailPokemonComponent implements OnInit {
 
-  pokemons: Pokemon[] = null; // il contiendra la list de tous les pokemons
+ // pokemons: Pokemon[] = null; // il contiendra la list de tous les pokemons
   pokemon: Pokemon = null; // il contiendra seulement le pokemon a affiché
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private route: ActivatedRoute, private router: Router, private pokemonsService: PokemonsService) {}
 
   ngOnInit(): void {
-      this.pokemons = POKEMONS;
-
       const id = +this.route.snapshot.paramMap.get('id');
-      for (let i = 0; i < this.pokemons.length; i++) {
-          if (this.pokemons[i].id === id) {
-              this.pokemon = this.pokemons[i];
-          }
-      }
+      this.pokemon = this.pokemonsService.getPokemon(id);
   }
 // permet de retourner en arrière
   goBack(): void {
       this.router.navigate(['/pokemons']);
   }
-
+  goEdit(pokemon) : void {
+    const link = ['pokemon/edit', pokemon.id];
+    this.router.navigate(link);
+  }
 }
