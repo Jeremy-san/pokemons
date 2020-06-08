@@ -17,6 +17,7 @@ import { BorderCardDirective } from './directives/border-card.directive';
 import { PokemonTypeColorPipe } from './pipes/pokemon-type-color.pipe';
 import { PokemonsService } from './services/pokemons.service';
 import { InMemoryDataService } from './services/in-memory-data.service';
+import { SearchPokemonComponent } from './components/search-pokemon/search-pokemon.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { InMemoryDataService } from './services/in-memory-data.service';
     PageNotFoundComponent,
     EditPokemonComponent,
     PokemonFormComponent,
+    SearchPokemonComponent,
   ],
   imports: [
     BrowserModule,
