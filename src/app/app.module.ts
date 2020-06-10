@@ -18,6 +18,8 @@ import { PokemonTypeColorPipe } from './pipes/pokemon-type-color.pipe';
 import { PokemonsService } from './services/pokemons.service';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { SearchPokemonComponent } from './components/search-pokemon/search-pokemon.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { SearchPokemonComponent } from './components/search-pokemon/search-pokem
     EditPokemonComponent,
     PokemonFormComponent,
     SearchPokemonComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,7 @@ import { SearchPokemonComponent } from './components/search-pokemon/search-pokem
     // permet de préciser des données renvoyé par l'api
 
   ],
-  providers: [PokemonsService, InMemoryDataService],
+  providers: [PokemonsService, InMemoryDataService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

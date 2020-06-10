@@ -5,10 +5,12 @@ import { DetailPokemonComponent } from './components/detail-pokemon/detail-pokem
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { EditPokemonComponent } from './components/edit-pokemon/edit-pokemon.component';
 
+import { AuthGuardService } from './services/auth-guard.service';
+
 
 const routes: Routes = [
   {path: 'pokemons', component: ListPokemonComponent},
-  {path: 'pokemon/edit/:id', component: EditPokemonComponent},
+  {path: 'pokemon/edit/:id', component: EditPokemonComponent, canActivate: [AuthGuardService]},
   {path: 'pokemon/:id', component: DetailPokemonComponent},
   {path: '', redirectTo: 'pokemons', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent} // redirige toutes les pages non connu
