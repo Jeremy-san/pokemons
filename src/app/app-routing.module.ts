@@ -9,10 +9,14 @@ import { AuthGuardService } from './services/auth-guard.service';
 
 
 const routes: Routes = [
-  {path: 'pokemons', component: ListPokemonComponent},
-  {path: 'pokemon/edit/:id', component: EditPokemonComponent, canActivate: [AuthGuardService]},
-  {path: 'pokemon/:id', component: DetailPokemonComponent},
-  {path: '', redirectTo: 'pokemons', pathMatch: 'full'},
+  {path: 'pokemon',
+  canActivate: [AuthGuardService],
+  children: [
+    { path: 'list', component: ListPokemonComponent },
+    { path: 'edit/:id', component: EditPokemonComponent },
+    { path: ':id', component: DetailPokemonComponent }
+  ]},
+  {path: '', redirectTo: 'pokemon/all', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent} // redirige toutes les pages non connu
 ];
 

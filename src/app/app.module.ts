@@ -20,6 +20,7 @@ import { InMemoryDataService } from './services/in-memory-data.service';
 import { SearchPokemonComponent } from './components/search-pokemon/search-pokemon.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AuthGuardService } from './services/auth-guard.service';
     PokemonFormComponent,
     SearchPokemonComponent,
     LoaderComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
