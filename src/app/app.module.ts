@@ -12,19 +12,21 @@ import { ListPokemonComponent } from './components/list-pokemon/list-pokemon.com
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PokemonFormComponent } from './components/forms/pokemon-form/pokemon-form.component';
 import { EditPokemonComponent } from './components/edit-pokemon/edit-pokemon.component';
+import { SearchPokemonComponent } from './components/search-pokemon/search-pokemon.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { LoginComponent } from './components/login/login.component';
 
 import { BorderCardDirective } from './directives/border-card.directive';
 import { PokemonTypeColorPipe } from './pipes/pokemon-type-color.pipe';
 import { PokemonsService } from './services/pokemons.service';
 import { InMemoryDataService } from './services/in-memory-data.service';
-import { SearchPokemonComponent } from './components/search-pokemon/search-pokemon.component';
-import { LoaderComponent } from './components/loader/loader.component';
 import { AuthGuardService } from './services/auth-guard.service';
-import { LoginComponent } from './components/login/login.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     BorderCardDirective,
     PokemonTypeColorPipe,
     DetailPokemonComponent,
@@ -34,7 +36,6 @@ import { LoginComponent } from './components/login/login.component';
     PokemonFormComponent,
     SearchPokemonComponent,
     LoaderComponent,
-    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +46,7 @@ import { LoginComponent } from './components/login/login.component';
     // permet de préciser des données renvoyé par l'api
 
   ],
-  providers: [PokemonsService, InMemoryDataService, AuthGuardService],
+  providers: [PokemonsService, InMemoryDataService, AuthGuardService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

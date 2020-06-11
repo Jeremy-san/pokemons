@@ -6,10 +6,12 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { EditPokemonComponent } from './components/edit-pokemon/edit-pokemon.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
+import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
-  {path: 'pokemon',
+  { path: 'login', component: LoginComponent},
+  { path: 'pokemon',
   canActivate: [AuthGuardService],
   children: [
     { path: 'list', component: ListPokemonComponent },

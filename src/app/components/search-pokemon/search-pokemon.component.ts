@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 // RxJS 6
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/internal/operators';
 import { Observable, Subject, of } from 'rxjs';
 
 import { PokemonsService } from './../../services/pokemons.service';
@@ -38,7 +38,7 @@ export class SearchPokemonComponent implements OnInit {
   }
 
   gotoDetail(pokemon: Pokemon): void {
-    let link = ['/pokemon', pokemon.id];
+    const link = ['/pokemon', pokemon.id];
     this.router.navigate(link);
   }
 

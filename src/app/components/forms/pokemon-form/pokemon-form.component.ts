@@ -23,18 +23,18 @@ export class PokemonFormComponent implements OnInit {
 
     // Détermine si le type passé en paramètres appartient ou non au pokémon en cours d'édition.
     hasType(type: string): boolean {
-        let index = this.pokemon.types.indexOf(type);
-        if (index > -1) return true;
+        const index = this.pokemon.types.indexOf(type);
+        if (index > -1) { return true; }
         return false;
     }
 
     // Méthode appelée lorsque l'utilisateur ajoute ou retire un type au pokémon en cours d'édition.
     selectType($event: any, type: string): void {
-        let checked = $event.target.checked;
+        const checked = $event.target.checked;
         if (checked) {
             this.pokemon.types.push(type);
         } else {
-            let index = this.pokemon.types.indexOf(type);
+            const index = this.pokemon.types.indexOf(type);
             if (index > -1) {
                 this.pokemon.types.splice(index, 1);
             }
@@ -61,7 +61,7 @@ export class PokemonFormComponent implements OnInit {
     }
 
     goBack() {
-      let link = ['/pokemon', this.pokemon.id];
+      const link = ['/pokemon', this.pokemon.id];
       this.router.navigate(link);
     }
 
