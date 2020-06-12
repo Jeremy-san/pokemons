@@ -18,7 +18,7 @@ const routes: Routes = [
     { path: 'edit/:id', component: EditPokemonComponent },
     { path: ':id', component: DetailPokemonComponent }
   ]},
-  {path: '', redirectTo: 'pokemon/all', pathMatch: 'full'},
+  {path: '', redirectTo: 'pokemon/list', pathMatch: 'full' },
   {path: '**', component: PageNotFoundComponent} // redirige toutes les pages non connu
 ];
 

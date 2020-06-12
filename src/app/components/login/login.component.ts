@@ -10,12 +10,12 @@ import { AuthService } from './../../services/auth.service';;
 })
 export class LoginComponent implements OnInit {
 
-  message = 'Vous êtes déconnecté. (pikachu/pikachu)';
-  name: string;
-  password: string;
+  message: string = 'Vous êtes déconnecté. (pikachu/pikachu)';
+  private name: string;
+  private password: string;
 
   constructor(
-    public authService: AuthService,
+    private authService: AuthService,
     private router: Router,
     private titleService: Title) { }
 
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       if (this.authService.isLoggedIn) {
         // Récupère l'URL de redirection depuis le service d'authentification
         // Si aucune redirection n'a été définis, redirige l'utilisateur vers la liste des pokemons.
-        const redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/pokemon/list';
+        let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/pokemon/list';
         // Redirige l'utilisateur
         this.router.navigate([redirect]);
       } else {

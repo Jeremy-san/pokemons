@@ -10,16 +10,18 @@ import { catchError, map, tap} from 'rxjs/Operators';
 })
 export class PokemonsService {
 
+  // le point d’accés à notre API
+  private pokemonsUrl = 'api/pokemons';
+
   constructor(private http: HttpClient) {}
 
-  private pokemonsUrl = 'api/pokemons';
 
   private log(log: string) {
     console.info(log); // methode qui permet de centraliser tous les log
   }
 
-  private handleError<T>(operation ='operation', result?: T) {
-    return(error: any): Observable<T> => {
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
       console.error(error);
       console.log(`${operation} failed: ${error.message}`);
 
