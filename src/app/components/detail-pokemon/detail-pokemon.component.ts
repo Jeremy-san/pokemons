@@ -28,7 +28,7 @@ export class DetailPokemonComponent implements OnInit {
 
 // permet de retourner en arrière
   goBack(): void {
-      this.router.navigate(['/pokemon/all']);
+      this.router.navigate(['/pokemon/list']);
   }
   goEdit(pokemon): void {
     const link = ['pokemon/edit', pokemon.id];
